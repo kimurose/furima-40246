@@ -44,10 +44,10 @@ class ItemsController < ApplicationController
   
     private
     def item_params
-      params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+      params.require(:item).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
     end
   
-    def set_prototype
+    def set_item
       @item = Item.find(params[:id])
     end
   
