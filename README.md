@@ -49,22 +49,23 @@ Things you may want to cover:
 | condition_id       | integer    | null: false                    |
 | burden_id          | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
-| days_id            | integer    | null: false                    |
+| shipping_day_id    | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :Order
+- has_one :order
 
-##　Ordersテーブル
+##　ordersテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
 | item               | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :user
-- has_one :item
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 ##　addressesテーブル
 | Column             | Type         | Options                        |
@@ -78,4 +79,4 @@ Things you may want to cover:
 | order              | references   | null: false, foreign_key: true |
 
 ### Association
-- has_one :order
+- belongs_to :order
