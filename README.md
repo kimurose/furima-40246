@@ -47,9 +47,10 @@ Things you may want to cover:
 | explanation        | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | condition_id       | integer    | null: false                    |
-| burden_id          | integer    | null: false                    |
+| delivery_cost_id   | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | shipping_day_id    | integer    | null: false                    |
+| price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
@@ -72,7 +73,7 @@ Things you may want to cover:
 | ------------------ | ------------ | ------------------------------ |
 | post_code          | string       | null: false                    |
 | prefecture_id      | integer      | null: false                    |
-| municipalities     | string       | null: false                    |
+| municipality       | string       | null: false                    |
 | street_address     | string       | null: false                    |
 | building_name      | string       |                                |
 | phone_number       | string       | null: false                    |
