@@ -1,3 +1,4 @@
 class Item < ApplicationRecord
-  validates :text, presence: true
+  validates :content, presence: true
+  has_one_attached :image
 end
