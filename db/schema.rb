@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_23_071309) do
     t.string "condition_id"
     t.string "delivery_cost_id"
     t.string "prefecture_id"
+    t.string "shipping_day_id"
     t.integer "price"
     t.integer "user_id"
     t.datetime "created_at", null: false
