@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    association :user, factory: :user
     image { Rack::Test::UploadedFile.new(Rails.root.join('app', 'assets', 'images', 'comment.png'), 'image/png') }
     product_name     { '商品名' }
     explanation      { '商品の説明' }

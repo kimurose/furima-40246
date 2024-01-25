@@ -13,6 +13,10 @@ RSpec.describe Item, type: :model do
    end
 
    context '異常系' do
+    it 'userが紐付いていなければ出品できない' do
+      @item.user = nil
+      expect(@item).not_to be_valid
+    end
     it '画像が必要であること' do
       @item.image = nil
       expect(@item).to be_invalid
@@ -71,6 +75,16 @@ RSpec.describe Item, type: :model do
     end
     it '販売価格は数値での入力でないと登録できない' do
       @item.price = 'aaaaaa'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is invalid")
+    end
+    it '販売価格が300円未満では登録できない' do
+      @item.price = '200'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is invalid")
+    end
+    it '販売価格が9,999,999円を超えると登録できない' do
+      @item.price = '10,000,000'
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is invalid")
     end
