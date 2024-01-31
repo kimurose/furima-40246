@@ -1,3 +1,4 @@
+<%= include_gon %>
 <%= render "shared/second-header"%>
 
 <div class='transaction-contents'>
@@ -34,7 +35,7 @@
     <%= form_with model: @order_address, url: item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
     <%# カード情報の入力 %>
-    <div class='credit-card-form'>rails 
+    <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力
       </h1>
@@ -42,7 +43,6 @@
         <div class='form-text-wrap'>
           <label class="form-text">カード情報</label>
           <span class="indispensable">必須</span>
-          <%= f.text_field :card_number, class:"input-default", id:"card_number", placeholder:"カード番号" %>
         </div>
         <div id="number-form" class="input-default"></div>
         <div class='available-card'>
