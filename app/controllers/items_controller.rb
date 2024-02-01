@@ -15,12 +15,9 @@ class ItemsController < ApplicationController
   def edit
     if current_user != @item.user
       redirect_to root_path
-      return
+    elsif @item.order.present? && current_user == @item.user
+      redirect_to root_path
     end
-    #if @item.sold_out?
-      #redirect_to root_path
-      #return
-    #end
   end
 
   def create
